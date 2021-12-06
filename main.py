@@ -64,6 +64,8 @@ class Lecturer(Mentor):
     def __str__(self):
         res = f'Имя:  {self.name} \nФамилия:  {self.surname} \nСредняя оценка за лекции: {round(self._a_grade(), 1)}\n ** Для самопроверки \nСловарь курсов и оценок: {self.grades}'
         return res
+    def __lt__(self, other):
+        return self._a_grade() < other._a_grade()
 
 
 class Reviewer(Mentor):
@@ -127,7 +129,8 @@ print(lecturer_1)
 print(lecturer_2)
 print('')
 print('')
-
+print('***Сравнение***')
+print(lecturer_1 < lecturer_2)
 student_list = [student_1, student_2]
 
 
